@@ -1,2 +1,2 @@
 # ffxiv
-Triggernometry Triggers
+Triggernometry Triggers by Jin
