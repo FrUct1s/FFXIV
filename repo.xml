@@ -664,7 +664,7 @@
                         </Actions>
                         <Condition Enabled="false" Grouping="Or" />
                       </Trigger>
-                      <Trigger Enabled="true" Source="FFXIVNetwork" Sequential="True" IsReadme="True" Name="Twisting Dive 1" Id="ff9d0252-b7e6-4fe0-b46f-b0a61dc8d5db" RegularExpression="^20\|[^|]*\|[^|]*\|[^|]*\|6B8B\|[^|]*\|[^|]*\|[^|]*\|[^|]*\|(?&lt;x&gt;[^|]*)\|(?&lt;y&gt;[^|]*)\|" PeriodRefire="Deny" RefirePeriodExpression="1000" Description="Notify Team when Twisting dive resolve">
+                      <Trigger Enabled="true" Source="FFXIVNetwork" Sequential="True" IsReadme="False" Name="Twisting Dive 1" Id="ff9d0252-b7e6-4fe0-b46f-b0a61dc8d5db" RegularExpression="^20\|[^|]*\|[^|]*\|[^|]*\|6B8B\|[^|]*\|[^|]*\|[^|]*\|[^|]*\|(?&lt;x&gt;[^|]*)\|(?&lt;y&gt;[^|]*)\|" PeriodRefire="Deny" RefirePeriodExpression="1000" Description="Notify Team when Twisting dive resolve">
                         <Actions>
                           <Action OrderNumber="1" OBSEndPoint="" VariableOp="SetNumeric" VariableName="northX" VariableExpression="${x}" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" Enabled="False" ActionType="Variable">
                             <Condition Enabled="false" Grouping="Or" />
