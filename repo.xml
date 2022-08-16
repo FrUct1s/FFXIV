@@ -664,7 +664,7 @@
                         </Actions>
                         <Condition Enabled="false" Grouping="Or" />
                       </Trigger>
-                      <Trigger Enabled="true" Source="FFXIVNetwork" Sequential="True" IsReadme="False" Name="Twisting Dive 1" Id="ff9d0252-b7e6-4fe0-b46f-b0a61dc8d5db" RegularExpression="^20\|[^|]*\|[^|]*\|[^|]*\|6B8B\|[^|]*\|[^|]*\|[^|]*\|[^|]*\|(?&lt;x&gt;[^|]*)\|(?&lt;y&gt;[^|]*)\|" PeriodRefire="Deny" RefirePeriodExpression="1000" Description="Notify Team when Twisting dive resolve">
+                      <Trigger Enabled="true" Source="FFXIVNetwork" Sequential="True" Name="Twisting Dive 1" Id="ff9d0252-b7e6-4fe0-b46f-b0a61dc8d5db" RegularExpression="^20\|[^|]*\|[^|]*\|[^|]*\|6B8B\|[^|]*\|[^|]*\|[^|]*\|[^|]*\|(?&lt;x&gt;[^|]*)\|(?&lt;y&gt;[^|]*)\|" PeriodRefire="Deny" RefirePeriodExpression="1000" Description="Notify Team when Twisting dive resolve">
                         <Actions>
                           <Action OrderNumber="1" OBSEndPoint="" VariableOp="SetNumeric" VariableName="northX" VariableExpression="${x}" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" Enabled="False" ActionType="Variable">
                             <Condition Enabled="false" Grouping="Or" />
@@ -1710,7 +1710,7 @@
         </Folders>
         <Triggers />
       </Folder>
-      <Folder Id="fd0a95bb-4b2d-4250-a6eb-5498a084e580" Name="Misc Triggers" Enabled="true">
+      <Folder Id="fd0a95bb-4b2d-4250-a6eb-5498a084e580" Name="! Misc Triggers" Enabled="true">
         <Folders />
         <Triggers>
           <Trigger Enabled="false" Source="FFXIVNetwork" Name="Protraction Buff" Id="42831b21-90bf-48cd-b190-2e69787ef500" RegularExpression="^21\|[^|]*\|[^|]*\|[^|]*\|650B\|[^|]*\|[^|]*\|(?&lt;ProtTarget&gt;[^ |^\|]*)">
@@ -1771,7 +1771,7 @@
             </Actions>
             <Condition Enabled="false" Grouping="Or" />
           </Trigger>
-          <Trigger Enabled="true" Source="FFXIVNetwork" Sequential="True" Name="Telesto: PartyJobs + Players" Id="4ee193a1-4f2f-45c5-943c-e008ad703e32" RegularExpression="^11\|[^|]*\|8\|[^|]*\|[^|]*\|[^|]*\|[^|]*\|[^|]*\|[^|]*\|[^|]*\|[^|]*$" PeriodRefire="Deny" RefirePeriodExpression="4000">
+          <Trigger Enabled="true" Source="FFXIVNetwork" Sequential="True" Name="Telesto: PartyJobs + Players" Id="4ee193a1-4f2f-45c5-943c-e008ad703e32" RegularExpression="^11\|[^|]*\|(?&lt;PartySize&gt;[48])\|[^|]*\|[^|]*\|[^|]*\|[^|^$]*[\|$]" PeriodRefire="Deny" RefirePeriodExpression="4000">
             <Actions>
               <Action OrderNumber="1" OBSEndPoint="" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Placeholder" ExecutionDelayExpression="3000" Asynchronous="False">
                 <Condition Enabled="false" Grouping="Or" />
@@ -1805,7 +1805,7 @@
               </Action>
               <Action OrderNumber="11" LoopInitExpression="1" OBSEndPoint="" TableVariableOp="Set" TableVariableName="TelestoPartyMembers" TableSourcePersist="True" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Loop" Asynchronous="False" RefireRequeue="False">
                 <LoopCondition Enabled="true" Grouping="Or">
-                  <ConditionSingle Enabled="true" ExpressionL="${_loopiterator}" ExpressionTypeL="Numeric" ExpressionR="8" ExpressionTypeR="Numeric" ConditionType="NumericLessEqual" />
+                  <ConditionSingle Enabled="true" ExpressionL="${_loopiterator}" ExpressionTypeL="Numeric" ExpressionR="${PartySize}" ExpressionTypeR="Numeric" ConditionType="NumericLessEqual" />
                 </LoopCondition>
                 <LoopActions>
                   <Action OrderNumber="1" OBSEndPoint="" TableVariableOp="Set" TableVariableName="TelestoParty" TableVariableExpression="${plvar:TelestoPartyMembers[${_loopiterator}]}" TableVariableX="1" TableVariableY="${_loopiterator}" TableSourcePersist="True" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="TableVariable" Asynchronous="False">
@@ -1828,7 +1828,7 @@
                       <ConditionSingle Enabled="true" ExpressionL="${_loopiterator]}" ExpressionTypeL="Numeric" ExpressionR="8" ExpressionTypeR="Numeric" ConditionType="NumericLess" />
                     </Condition>
                   </Action>
-                  <Action OrderNumber="5" OBSEndPoint="" TableVariableOp="Set" TableVariableName="TelestoParty" TableVariableExpression="${plvar:TelestoPartyRole[${_loopiterator]}" TableVariableX="5" TableVariableY="${_loopiterator}" TableSourcePersist="True" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="TableVariable" Asynchronous="False">
+                  <Action OrderNumber="5" OBSEndPoint="" TableVariableOp="Set" TableVariableName="TelestoParty" TableVariableExpression="${plvar:TelestoPartyRole[${_loopiterator}]}" TableVariableX="5" TableVariableY="${_loopiterator}" TableSourcePersist="True" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="TableVariable" Asynchronous="False">
                     <Condition Enabled="true" Grouping="Or">
                       <ConditionSingle Enabled="true" ExpressionL="${_loopiterator]}" ExpressionTypeL="Numeric" ExpressionR="8" ExpressionTypeR="Numeric" ConditionType="NumericLess" />
                     </Condition>
@@ -1851,6 +1851,48 @@
             <Condition Enabled="false" Grouping="Or" />
           </Trigger>
         </Triggers>
+      </Folder>
+      <Folder Id="63d73628-1f93-42ee-b901-d10091e42763" Name="Pandaemonium" Enabled="true">
+        <Folders>
+          <Folder Id="16cf44ec-aeb0-4f64-825d-1d9f3b17d04b" Name="P9S" Enabled="true">
+            <Folders />
+            <Triggers />
+          </Folder>
+          <Folder Id="78235105-7592-44c0-b31f-3f5dcf1d89eb" Name="P10S" Enabled="true">
+            <Folders />
+            <Triggers />
+          </Folder>
+          <Folder Id="acd93414-4d44-431b-b51b-cdb2d8920900" Name="P11S" Enabled="true">
+            <Folders />
+            <Triggers />
+          </Folder>
+          <Folder Id="a1680323-216c-4e8d-8cf4-a2e65f6bc000" Name="P12S" Enabled="true">
+            <Folders />
+            <Triggers />
+          </Folder>
+          <Folder Id="40b47370-524e-4067-9512-6beb6c32d8de" Name="Abyssos" Enabled="true">
+            <Folders>
+              <Folder Id="2c798c87-becf-4385-b155-c720a67336d2" Name="P5S" Enabled="true">
+                <Folders />
+                <Triggers />
+              </Folder>
+              <Folder Id="9f16748b-6eee-4cee-9481-b87a1955def9" Name="P6S" Enabled="true">
+                <Folders />
+                <Triggers />
+              </Folder>
+              <Folder Id="8b0cd01a-b69b-464f-98e8-d8da831ac6ed" Name="P7S" Enabled="true">
+                <Folders />
+                <Triggers />
+              </Folder>
+              <Folder Id="8bf84e7e-3397-4f17-abdf-2688c2382d36" Name="P8S" Enabled="true">
+                <Folders />
+                <Triggers />
+              </Folder>
+            </Folders>
+            <Triggers />
+          </Folder>
+        </Folders>
+        <Triggers />
       </Folder>
     </Folders>
     <Triggers />
