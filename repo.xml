@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <TriggernometryExport Version="1">
-  <ExportedFolder Id="c90c8890-2de5-44e3-ad51-14606afc0e71" Name="Jin's Triggers (Jin❗Vitali#1988)" Enabled="true">
+  <ExportedFolder Id="c90c8890-2de5-44e3-ad51-14606afc0e71" Name="Jin's Trigger (Jin❗Vitali#1988)" Enabled="true">
     <Folders>
       <Folder FFXIVZoneFilterEnabled="True" FfxivZoneFilterRegularExpression="^968$" Id="b12b3194-0ba3-4a2c-818b-0b09293a9150" Name="Dragonsong's Reprise (Ultimate) p1" Enabled="true">
         <Folders>
